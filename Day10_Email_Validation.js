@@ -3,4 +3,4 @@ function validateEmail(email){
    return emailPattern.test(email); 
  } 
 
- console.log(validateEmail('ayomipo@gmail.com'))
+ console.log(validateEmail("ayomipo@gmail.com"))
