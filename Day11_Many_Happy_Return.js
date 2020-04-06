@@ -11,5 +11,5 @@ if (today > birthday) {
 return Math.ceil((birthday - today) / (1000*60*60*24)) + ' days';
 }
 
-//Date of Birth format : MM-DD-YY
+//Date of Birth Format : MM-DD-YY
 nextBirthday("10-13-1998")
