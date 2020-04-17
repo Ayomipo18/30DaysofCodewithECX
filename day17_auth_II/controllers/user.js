@@ -2,15 +2,15 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const users = require('../models/user');
 
-exports.getUser = async (req, res) => {
+exports.getUser = (req, res) => {
 	const { email } = req.body;	
 
 	//get token from request header
-    const token = await req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization.split(' ')[1];
     //if no token is sent, return error message
-    if(!token) return res.json(403).json({"error" : " allowed"});
+    if(!token) return res.status(403).json({"error" : "Not allowed"});
 	//verify token
-    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     //check if email is equal to the decoded token
     if(email !== decoded.email) return res.status(403).json({"error" : "Not allowed"});
     
