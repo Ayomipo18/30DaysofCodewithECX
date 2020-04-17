@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const expressJwt = require('express-jwt');
 const users = require('../models/user');
 const bcrypt = require('bcrypt');
 
@@ -42,7 +41,7 @@ exports.signin = (req, res) => {
 		// generate a token with email and secret
         const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
         // persist the token as 't' in cookie with expiry date
-        res.cookie('t', token, { expire: new Date() + 9999 });
+        res.cookie('t', token, { expire: new Date() + 9999 });//incase of signout
         // retrun response with username, email and token
         const { username, email } = user;
         return res.json({ token, user: { username, email } });
@@ -50,7 +49,3 @@ exports.signin = (req, res) => {
 		}
 	});
 };
-
-exports.requireSignin = expressJwt({
-    secret: process.env.JWT_SECRET,
-});
