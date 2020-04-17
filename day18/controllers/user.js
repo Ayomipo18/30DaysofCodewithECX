@@ -7,7 +7,7 @@ exports.getUser = async (req, res) => {
 	//get token from request header
   const token = await req.headers.authorization.split(' ')[1];
   //if no token is sent, return error message
-  if(!token) return res.json(403).json({"error" : " allowed"});
+  if(!token) return res.status(403).json({"error" : "Not allowed"});
 	//verify token
   const decoded = await jwt.verify(token, process.env.JWT_SECRET);
   //check if email is equal to the decoded token
