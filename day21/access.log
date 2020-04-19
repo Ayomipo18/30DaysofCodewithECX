@@ -1,0 +1,8 @@
+POST /signup 200 56 - 161.623 ms
+POST /login 200 232 - 118.117 ms
+GET /getUser/5e9cd41e4a850d3480ea72b5 200 205 - 13.871 ms
+GET /logs 200 124 - 6.938 ms
+PUT /getUser/5e9cd41e4a850d3480ea72b5 404 171 - 2.761 ms
+PUT /updateUser/5e9cd41e4a850d3480ea72b5 200 206 - 12.147 ms
+GET /getAllUsers 200 654 - 10.439 ms
+GET /logs 200 308 - 1.060 ms
